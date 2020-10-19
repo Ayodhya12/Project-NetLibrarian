@@ -1,29 +1,35 @@
-  <!DOCTYPE html>
+ <!DOCTYPE HTML>
 <html>
 <head>
-  <title>NetLibrarian.com</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-     <link rel="stylesheet" type="text/css" href="theme.css">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="theme.css">
 </head>
 <body>
- <div class="container cont2">
- <div class="login-box">
-    <h1 align="center">Contact Form</h1>
-        <form method="post" action="contact.php">
-          <div class="textbox"> 
-            <input type="text" name="name" class="txt" placeholder="Name" required="">
-          </div>
-          <div class="textbox">
-            <input type="text" name="mail" class="txt" placeholder="E-mail address" required="">
-          </div>
-           
-            <textarea name="message" placeholder="Message" required="" rows="6" cols="33" style=" background: transparent;font-size: 18px; border-bottom:  2px solid #4caf50;"></textarea>
-          
-          <input type="submit" name="send" value="Submit" class="btn" ><br><br>
-          <input type="reset" name="reset" value="Reset" class="btn" >
+  <div class="container cont1">
+    <div class="login-box">
+    <h1 align="center">Book Details</h1>
+      <form method="post" action="bookdetail.php">
+            <div class="textbox">
+                <input id="" name="genre" type="text" placeholder="Enter genre of  book" required=""> 
+            </div>
+            <div class="textbox">
+              <input id="" type="text" name="title"  placeholder="Enter Title" required="">
+            </div>
+            <div class="textbox">
+                <input id="" name="author" type="text" placeholder="Enter Author" required=""> 
+            </div>
+            <div class="textbox">
+              <input id="" type="text" name="edition"  placeholder="Enter Edition" required="">
+            </div> 
+            <div class="textbox">
+              <input id="" type="text" name="publication"  placeholder="Enter Publication" required="">
+            </div> 
+            <input type="submit" name="Submit"  class=" btn"><br><br>
+            <input type="reset" name="Reset"   class=" btn">
+
+    
         </form>
+    </div>
   </div>
-  </div>
- 
 </body>
 </html>
