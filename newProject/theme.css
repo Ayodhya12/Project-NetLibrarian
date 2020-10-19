@@ -122,5 +122,25 @@ img:hover {
   border-radius:20px;
   box-shadow:0px 0px 29px -15px rgba(0,0,0,0.75);
 }
+.bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg-3 {
+  background-image: url("3.jpg");
+  min-height: 400px;
+}
+@media only screen and (max-device-width: 1600px) {
+.bgimg-3 {
+    background-attachment: scroll;
+    min-height: 600px;
+  }
+}
+.w3-margin-bottom{
+  color: #fff;
+}
 
  
