@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2020 at 09:33 PM
+-- Generation Time: Oct 21, 2020 at 05:44 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -29,10 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `book_detail` (
-  ` genre` int(20) NOT NULL,
-  `title` varchar(50) NOT NULL,
+  `book_id` int(100) NOT NULL,
+  `genre` varchar(30) NOT NULL,
+  `title` varchar(40) NOT NULL,
   `author` varchar(30) NOT NULL,
-  `edition` varchar(15) NOT NULL,
+  `edition` varchar(30) NOT NULL,
   `publication` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,9 +41,24 @@ CREATE TABLE `book_detail` (
 -- Dumping data for table `book_detail`
 --
 
-INSERT INTO `book_detail` (` genre`, `title`, `author`, `edition`, `publication`) VALUES
-(1324, 'programming in c', 'w.w.perera', '2000', 'sarasavi'),
-(1324, 'programming in c', 'w.w.perera', '2000', 'sarasavi');
+INSERT INTO `book_detail` (`book_id`, `genre`, `title`, `author`, `edition`, `publication`) VALUES
+(1, 'Programming', 'Java', 'S.T.Athapaththu', '2017', 'Sadeepa'),
+(2, 'Programming', 'programming in c', 'w.w.perera', '2000', 'sarasavi'),
+(3, 'Chemistry', 'Organic Chemistry', 'Jeewaka C. Premaraja', '2020', 'ACME'),
+(4, 'Mathematics', 'Complex Numbers', 'S.T.Athapaththu', '3rd', 'Sadeepa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `borrow_books`
+--
+
+CREATE TABLE `borrow_books` (
+  `book_id` varchar(30) NOT NULL,
+  `mem_id` varchar(30) NOT NULL,
+  `issue_date` date NOT NULL,
+  `return_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,9 +67,9 @@ INSERT INTO `book_detail` (` genre`, `title`, `author`, `edition`, `publication`
 --
 
 CREATE TABLE `contact` (
-  `Name` varchar(30) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Message` varchar(500) NOT NULL
+  `Name` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Message` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -61,7 +77,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`Name`, `Email`, `Message`) VALUES
-('dilki', 'mdasubhasiri@students.nsbm.lk', 'HI');
+('dilki', 'mdasubhasiri@students.nsbm.lk', 'Hello');
 
 -- --------------------------------------------------------
 
@@ -70,19 +86,54 @@ INSERT INTO `contact` (`Name`, `Email`, `Message`) VALUES
 --
 
 CREATE TABLE `registration` (
-  `FirstName` varchar(30) NOT NULL,
-  `LastName` varchar(30) NOT NULL,
+  `mem_id` int(100) NOT NULL,
+  `FirstName` varchar(100) NOT NULL,
+  `LastName` varchar(100) NOT NULL,
   `Email` varchar(30) NOT NULL,
-  `Password` varchar(15) NOT NULL
+  `Password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`FirstName`, `LastName`, `Email`, `Password`) VALUES
-('Narada', 'Abeykoon', 'narada@gmail.com', '5013140f9f6ecfa'),
-('Dilki', 'Ayodhya', 'mdasubhasiri@students.nsbm.lk', 'c710e1765bcba06');
+INSERT INTO `registration` (`mem_id`, `FirstName`, `LastName`, `Email`, `Password`) VALUES
+(1, 'Dilki', 'Ayodhya', 'mdasubhasiri@students.nsbm.lk', 'c710e1765bcba062de5099c65765fa'),
+(2, 'Narada', 'Abeykoon', 'narada@gmail.com', '5013140f9f6ecfade3ac8ac2e5a970'),
+(3, 'Elon', 'Musk', 'musk@gmail.com', '9147798ed6cb3bd0090f534a1007bb'),
+(4, 'Anne', 'Marie', 'anne@gmail.com', 'anne123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `return_books`
+--
+
+CREATE TABLE `return_books` (
+  `book_id` varchar(30) NOT NULL,
+  `mem_id` varchar(30) NOT NULL,
+  `currnt_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `registration`
+--
+ALTER TABLE `registration`
+  ADD PRIMARY KEY (`mem_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `registration`
+--
+ALTER TABLE `registration`
+  MODIFY `mem_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
