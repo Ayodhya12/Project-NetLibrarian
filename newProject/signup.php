@@ -1,5 +1,5 @@
- 
-	 
+<link rel="stylesheet" type="text/css" href="theme.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <?php
 session_start();
 
@@ -21,17 +21,18 @@ else{
 $firstname=$_REQUEST["fname"];
 $lastname=$_REQUEST["lname"];
 $email=$_REQUEST["mail"];
-$password=sha1($_REQUEST["pwd"]);
+/*$pwd=$_REQUEST["pwd"];=>$pwd=sha1($_REQUEST["pwd"]);*/
+$pwd=$_REQUEST["pwd"];
 
-$query="INSERT INTO registration(FirstName,LastName,Email,Password) VALUES('$firstname','$lastname','$email','$password');";
+$query="INSERT INTO registration(FirstName,LastName,Email,Password) VALUES('$firstname','$lastname','$email','$pwd');";
 
 if($conn->query($query))
 {
-	echo "Record Added Successfully";
+	echo "<center><h2 class='alert alert-success' style='width:450px; margin-top:250px;'>Record Added Successfully</h2></center>";
 }
 else
 {
-	echo "ERROR";
+	echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'>ERROR</h2></center>";
 }
  
 mysqli_close($conn);
