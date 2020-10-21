@@ -1,4 +1,4 @@
- @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
 body {
   background-image: url("background.jpg");
@@ -47,10 +47,13 @@ img:hover {
  left: 50%;
  transform: translate(-50%,-50%);
  color: #fff;
+ background-color:rgba(255,255,255,0.1); 
+ padding: 40px;
+ border-radius:20px;
 }
 .login-box h1
 {
-  float: left;
+ 
   font-size: 40px;
   border-bottom: 6px solid #4caf50;
   margin-bottom: 50px;
@@ -95,31 +98,5 @@ img:hover {
 ::placeholder 
 {
  color: #fff;
-}
-.cont{
-  margin-top:120px;
-  background-color:rgba(255,255,255,0.5);
-  padding:90px;
-  border-radius:20px;
-  box-shadow:0px 0px 29px -15px rgba(0,0,0,0.75);
-}
-
-.cont1{
-  margin-top:70px;
-  margin-right: 0px;
-  margin-left: 120px;
-  background-color:rgba(255,255,255,0.1);
-  padding:250px;
-  border-radius:20px;
-  box-shadow:0px 0px 29px -15px rgba(0,0,0,0.75);
-}
-.cont2{
-  margin-top:40px;
-  margin-right: 0px;
-  margin-left: 120px;
-  background-color:rgba(255,255,255,0.1);
-  padding:280px;
-  border-radius:20px;
-  box-shadow:0px 0px 29px -15px rgba(0,0,0,0.75);
 }
  
