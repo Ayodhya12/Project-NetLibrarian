@@ -20,10 +20,10 @@ if($conn->connect_error)
 }
 else{
 }
-/*$phash=sha1($pwd);*/
+$phash=sha1($pwd);
 
 
-$sql="SELECT EXISTS(SELECT * FROM `registration` WHERE `Email`='$email' AND `Password`='$pwd')";
+$sql="SELECT EXISTS(SELECT * FROM `registration` WHERE `Email`='$email' AND `Password`='$phash')";
 
 
 $r=mysqli_query($conn,$sql);

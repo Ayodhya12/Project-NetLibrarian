@@ -21,8 +21,7 @@ else{
 $firstname=$_REQUEST["fname"];
 $lastname=$_REQUEST["lname"];
 $email=$_REQUEST["mail"];
-/*$pwd=$_REQUEST["pwd"];=>$pwd=sha1($_REQUEST["pwd"]);*/
-$pwd=$_REQUEST["pwd"];
+$pwd=sha1($_REQUEST["pwd"]);
 
 $query="INSERT INTO registration(FirstName,LastName,Email,Password) VALUES('$firstname','$lastname','$email','$pwd');";
 
