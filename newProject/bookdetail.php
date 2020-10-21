@@ -3,6 +3,8 @@
 <head>
 	<title></title>
 </head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="theme.css">
 <body>
  
 <?php 
@@ -23,22 +25,22 @@ if($conn->connect_error)
 else
 {
 
-
-$isbn=$_POST["genre"];
+$book_id=$_POST["book_id"];
+$genre=$_POST["genre"];
 $title=$_POST["title"];
 $author=$_POST["author"];
 $edition=$_POST["edition"];
 $publication=$_POST["publication"];
 
-$query = "INSERT INTO book_detail(genre,title,author,edition,publication) VALUES('$genre','$title','$author','$edition','$publication');";
+$query = "INSERT INTO book_detail(book_id,genre,title,author,edition,publication) VALUES('$book_id','$genre','$title','$author','$edition','$publication');";
 
 if($conn->query($query))
-{
-	echo "<h3>Book information is inserted successfully </h3>";
+{ 
+	echo "<center><h2 class='alert alert-success' style='width:450px; margin-top:250px;'>Book information is inserted successfully </h2></center>";
 }
 else
 {
-	echo "ERROR";
+	echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'>ERROR...</h2></center> ";
 }
  
 mysqli_close($conn);
@@ -46,7 +48,7 @@ mysqli_close($conn);
 ?>
 
  
-<a href="SearchBooks.php"> To search for the Book information click here </a>
+<a href="Book.php"><h3 style="color: #fff;"> To search for the Book information click here</h3> </a>
 
 </body>
 </html>
