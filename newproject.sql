@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2020 at 05:44 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Generation Time: Oct 21, 2020 at 07:05 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -90,7 +89,7 @@ CREATE TABLE `registration` (
   `FirstName` varchar(100) NOT NULL,
   `LastName` varchar(100) NOT NULL,
   `Email` varchar(30) NOT NULL,
-  `Password` varchar(30) NOT NULL
+  `Password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -98,10 +97,9 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`mem_id`, `FirstName`, `LastName`, `Email`, `Password`) VALUES
-(1, 'Dilki', 'Ayodhya', 'mdasubhasiri@students.nsbm.lk', 'c710e1765bcba062de5099c65765fa'),
-(2, 'Narada', 'Abeykoon', 'narada@gmail.com', '5013140f9f6ecfade3ac8ac2e5a970'),
-(3, 'Elon', 'Musk', 'musk@gmail.com', '9147798ed6cb3bd0090f534a1007bb'),
-(4, 'Anne', 'Marie', 'anne@gmail.com', 'anne123');
+(3, 'Elon', 'Musk', 'musk@gmail.com', '1ff3ad36f48586b9d6439514167792a5ac419429'),
+(4, 'Anne', 'Marie', 'anne@gmail.com', 'ee846643b475367dc295a57082d35aadce799b76'),
+(7, 'Narada', 'Madusanka', 'naradampro@gmail.com', '5013140f9f6ecfade3ac8ac2e5a970613f634a74');
 
 -- --------------------------------------------------------
 
@@ -133,7 +131,7 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `mem_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `mem_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
