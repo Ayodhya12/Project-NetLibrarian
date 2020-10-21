@@ -24,11 +24,11 @@ $query="INSERT INTO  contact( Name,Email,Message) VALUES('$name','$email','$mess
 
 if($conn->query($query))
 {
-	echo "Record Added Successfully";
+	echo "<center><h2 class='alert alert-success' style='width:450px; margin-top:250px;'>Record Added Successfully</h2></center>";
 }
 else
 {
-	echo "ERROR";
+	echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'>ERROR</h2></center>";
 }
  
 mysqli_close($conn);
