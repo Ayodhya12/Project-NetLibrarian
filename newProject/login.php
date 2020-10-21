@@ -1,8 +1,9 @@
- 
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="theme.css">
 <?php
- 
+
 $email=$_REQUEST["mail"];
-$password=$_REQUEST["pwd"];
+$pwd=$_REQUEST["pwd"];
 
 $dbcon=parse_ini_file("dbconfig.ini");
 $server=$dbcon['server'];
@@ -19,32 +20,36 @@ if($conn->connect_error)
 }
 else{
 }
-$sql="SELECT EXISTS(SELECT * FROM registration WHERE 'Email'='$email' AND 'Password'='$password');";
- 
- 
-if($conn->query($sql))
-{
-	/*$row=mysqli_fetch_array($conn->query($sql) ,MYSQLI_NUM);
+/*$phash=sha1($pwd);*/
+
+
+$sql="SELECT EXISTS(SELECT * FROM `registration` WHERE `Email`='$email' AND `Password`='$pwd')";
+
+
+$r=mysqli_query($conn,$sql);
+  
+
+if($r){
+	 $row=mysqli_fetch_array($r,MYSQLI_NUM);
 	 if ($row[0]==1) {
 	 	session_start();
-		$_SESSION["Email"]=$email;
-		$_SESSION["Password"]=$password;*/
+		$_SESSION["email"]=$email;
+		$_SESSION["pwd"]=$pwd;
 
+        $_SESSION['login_user']=$email;
+	 	echo "<script type='text/javascript'>location.href= 'index.php';</script>";
 	 }
 	 else{
-	 	echo "<h2>Try again.</h2>";
-	 
-}
- 
+	 	echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'> User not found. Please check your e-mail and password and try again.</h2></center>";
+	 }
 }
 else{
-	echo "<h2>Conection Faild..!</h2>";
+	echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'>Conection Faild..!</h2></center>";
 }
  
  
 mysqli_close($conn);
-
-
-
 ?>
- 
+</body>
+</html>
+
