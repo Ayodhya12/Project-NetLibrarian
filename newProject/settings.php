@@ -41,10 +41,10 @@ else
 
 	?>
   
-	<div class="profile_info" style="text-align: center;">
+	<!--<div class="profile_info" style="text-align: center;">
 		<span style="color: white;">Welcome,</span>	
 		<h4 style="color: white;"><?php echo $_SESSION['user']; ?></h4>
-	</div>
+	</div>-->
   
  <div class="login-box">
          <h1 align="center" style="margin-top:150px;">Edit Information</h1>
