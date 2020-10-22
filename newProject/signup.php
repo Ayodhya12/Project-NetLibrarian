@@ -21,9 +21,19 @@ else{
 $firstname=$_REQUEST["fname"];
 $lastname=$_REQUEST["lname"];
 $email=$_REQUEST["mail"];
+$user_type=$_REQUEST["user_type"];
 $pwd=sha1($_REQUEST["pwd"]);
 
-$query="INSERT INTO registration(FirstName,LastName,Email,Password) VALUES('$firstname','$lastname','$email','$pwd');";
+if($user_type=="Admin")
+{
+	$status='1';
+}
+else
+{
+	$status='2';
+}
+
+$query="INSERT INTO registration(FirstName,LastName,Email,Password,status_id) VALUES('$firstname','$lastname','$email','$pwd','$status');";
 
 if($conn->query($query))
 {
