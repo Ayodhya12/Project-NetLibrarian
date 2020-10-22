@@ -30,7 +30,7 @@ session_start();
               <li class="active"><a href="#">Home</a></li>
               <li><a href="book.php">Book Library</a></li>
               <li><a href="profile.php">Profile</a></li>
-              <li><a href="#">#</a></li>  
+              <li><a href="#">Account Details</a></li>  
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -79,8 +79,8 @@ session_start();
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Admin-Sign Up</a></li>
-              <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>User-Sign Up</a></li>
+               
+              <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
               <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
           </div>
