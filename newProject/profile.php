@@ -51,11 +51,20 @@
 
   			?>
  			<div style="text-align: center;"> <b><h3>Welcome,</h3></b>
-	 			<h4>
-	 				<?php echo $_SESSION['login_user']; ?>
-	 			</h4><br><br>
+	 			<h2>
+	 				<?php echo /*$_SESSION['login_user']*/$row['FirstName']; ?>
+	 			</h2><br><br>
  			</div>
  			<?php
+
+ 			if($row['status_id']==1)
+ 			{
+ 				$status="Admin";
+ 			}
+ 			else
+ 			{
+ 				$status="User";
+ 			}
  				echo "<b>";
  				echo "<table class='table table-dark table-hover'>";
 	 				echo "<tr>";
@@ -83,6 +92,15 @@
 	 					echo "</td>";
 	 					echo "<td>";
 	 						echo $row['Email'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+	 				echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> User Type: </b>";	
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $status;
 	 					echo "</td>";
 	 				echo "</tr>";
 
