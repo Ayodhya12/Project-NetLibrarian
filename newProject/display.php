@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="theme.css">
 </head>
 <body>
+<div class="container">
 <h1 align="center" style="color: #fff; border-bottom: 6px solid #4caf50; margin-bottom: 20px;  padding: 13px 0; width: 450px; ">Book Details</h1>
 </body>
 </html>
@@ -60,7 +61,9 @@ else
  }
 
  echo " </table>";
-} 
+} ?>
+</div>
+<?php
 mysqli_close($conn);
 
 ?> 
