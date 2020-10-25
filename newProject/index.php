@@ -31,10 +31,10 @@ session_start();
               <li><a href="book.php">Book Library</a></li>
               <li><a href="profile.php">Profile</a></li>
               <li><a href="#">Account Details</a></li>  
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact_form.php">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="search.html"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+              <li><a href="search.php"><span class="glyphicon glyphicon-search"></span> Search</a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
           </div>
@@ -79,8 +79,8 @@ session_start();
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-               
-              <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+              <li><a href="admin_signup.html"><span class="glyphicon glyphicon-user"></span> Admin-Sign Up</a></li> 
+              <li><a href="user_signup.html"><span class="glyphicon glyphicon-user"></span> User-Sign Up</a></li>
               <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
           </div>
