@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="theme.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      
+      
+</head>
+<body>
+     <div class="login-box">
+         <h1 align="center">Registration Form</h1>
+        <form method="post" action="user_signup.php">
+          <div class="textbox"> 
+            <input type="text" name="fname" class="txt" placeholder="First Name" required="">
+          </div>
+          <div class="textbox">
+            <input type="text" name="lname" class="txt" placeholder="Last Name" required="">
+          </div>
+          <div class="textbox">
+            <input id="email" type="text" name="mail" class="txt" placeholder="Your e-mail address" required="">
+          </div>
+          <div class="textbox">
+            <input id="password" class="txt" name="pwd" type="password" placeholder="password" required="">
+          </div>
+          <div class="textbox">
+            <input id="passconfirm" type="password" name="pwd" class="txt" placeholder="Confirm Password" required="">
+          </div> 
+          <input type="checkbox" name="agree" required=""> I Agree to the Terms of use.<br><br> 
+          <input type="submit" name="sign" value="Sign Up" class="btn" >
+        </form>
+    </div>
+</body>
+</html>
