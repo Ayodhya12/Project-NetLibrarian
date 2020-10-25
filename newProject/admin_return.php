@@ -122,12 +122,17 @@ function closeNav() {
 <h1 align="center" style="color: #fff; border-bottom: 6px solid #4caf50; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">Return Books</h1>
 <?php
 
-$res=mysqli_query($conn,"SELECT * FROM borrow_books WHERE status='return' ORDER BY book_id;");
+$res=mysqli_query($conn,"SELECT registration.Email,book_detail.book_id,title,author,edition,borrow_books.issue_date,return_books.currnt_date FROM registration inner join borrow_books ON registration.Email=borrow_books.Email inner join book_detail ON borrow_books.book_id=book_detail.book_id inner join return_books ON return_books.book_id=borrow_books.book_id WHERE borrow_books.status='return' ORDER BY book_id ;");
+ 
+ 
 
  echo "<table class='table table-dark table-hover'>";
  echo "<tr style='background-color:#28292d;'>";
- echo "<th>"; echo "Book ID"; echo "</th>";
  echo "<th>"; echo "Email"; echo "</th>";
+ echo "<th>"; echo "Book ID"; echo "</th>"; 
+ echo "<th>"; echo "Title"; echo "</th>";
+ echo "<th>"; echo "Author"; echo "</th>";
+ echo "<th>"; echo "Edition"; echo "</th>";
  echo "<th>"; echo "Issue Date"; echo "</th>";
  echo "<th>"; echo "Return Date"; echo "</th>";
  /*echo "<th>"; echo ""; echo "</th>";*/
@@ -136,11 +141,14 @@ $res=mysqli_query($conn,"SELECT * FROM borrow_books WHERE status='return' ORDER 
  while ($row=mysqli_fetch_assoc($res))
   {
  echo "<tr>";
- echo "<td>"; echo $row['book_id']; echo "</td>";
  echo "<td>"; echo $row['Email']; echo "</td>";
+ echo "<td>"; echo $row['book_id']; echo "</td>";
+ echo "<td>"; echo $row['title']; echo "</td>";
+ echo "<td>"; echo $row['author']; echo "</td>";
+ echo "<td>"; echo $row['edition']; echo "</td>";
  echo "<td>"; echo $row['issue_date']; echo "</td>";
- echo "<td>"; echo $row['return_date']; echo "</td>";
-/* echo "<td>"; echo $row['currnt_date']; echo "</td>";*/
+ /*echo "<td>"; echo $row['return_date']; echo "</td>";*/
+ echo "<td>"; echo $row['currnt_date']; echo "</td>"; 
  echo " </tr>";
  }
 
