@@ -48,7 +48,7 @@ mysqli_close($conn);
 ?>
 
  
-<a href="Book.php"><h3 style="color: #fff;"> To search for the Book information click here</h3> </a>
+<a href="admin_Books.php"><h3 style="color: #fff;"> To search for the Book information click here</h3> </a>
 
 </body>
 </html>
