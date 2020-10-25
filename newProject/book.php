@@ -59,7 +59,6 @@
 </style>
 </head>
 <body>
-<h1 align="center" style="color: #fff; border-bottom: 6px solid #4caf50; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">List Of Books</h1>
 
 <?php
 
@@ -95,10 +94,10 @@ else
                 ?>
             </div><br><br>
 
- 
+  <div class="h"> <a href="index.php">Home</a></div>
   <div class="h"> <a href="book.php">Books</a></div>
-  <!--<div class="h"> <a href="request.php">Book Request</a></div>-->
-  <div class="h"> <a href="borrow.php">Borrow Book</a></div>
+  <div class="h"> <a href="request.php">Book Request</a></div>
+  <div class="h"><a href="information.php">Issue Information</a></div>
   <div class="h"><a href="return.php">Return Book</a></div>
 </div>
 
@@ -120,6 +119,8 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 }
 </script>
+ <div class="container">
+<h1 align="center" style="color: #fff; border-bottom: 6px solid #4caf50; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">List Of Books</h1>
 <?php
 
 $res=mysqli_query($conn,"SELECT * FROM book_detail ORDER BY book_id;");
