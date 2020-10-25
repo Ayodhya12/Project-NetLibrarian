@@ -39,15 +39,12 @@ else
 		}
 		$_SESSION['user']=$fname;
 
+		 
+
 	?>
-  
-	<!--<div class="profile_info" style="text-align: center;">
-		<span style="color: white;">Welcome,</span>	
-		<h4 style="color: white;"><?php echo $_SESSION['user']; ?></h4>
-	</div>-->
-  
+   
  <div class="login-box">
-         <h1 align="center" style="margin-top:150px;">Edit Information</h1>
+         <h1 align="center" style="margin-top:50px;">Edit Information</h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="textbox">
           <label><h4><b>First Name</b></h4></label> 
@@ -63,7 +60,7 @@ else
           </div>
           <div class="textbox">
           	<label><h4><b>Password</b></h4></label>
-            <input id="password" class="txt" name="pwd" type="text"  value="<?php echo $pwd; ?>">
+            <input id="password" class="txt" name="pwd" type="text"  value="<?php echo "password"; ?>">
           </div> <br>  
           <input type="submit" name="sign" value="Save" class="btn" >
         </form>
@@ -77,9 +74,10 @@ else
 			$fname=$_POST['FirstName'];
 			$lname=$_POST['LastName'];
 			$email=$_POST['Email'];
-			$pwd=$_POST['Password']; 
+			$pwd=$_POST['Password'];
+			$epwd=sha1($pwd);
  
-			$res= "UPDATE registration SET FirstName='$fname', LastName='$last', Email='$email', Password='$pwd' WHERE FirstName='".$_SESSION['user']."';";
+			$res= "UPDATE registration SET FirstName='$fname', LastName='$last', Email='$email', Password='$epwd' WHERE FirstName='".$_SESSION['user']."';";
 
 			if(mysqli_query($conn,$res))
 			{
