@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	 <title>NetLibrarian.com</title>
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="theme.css">
+<link rel="stylesheet" type="text/css" href="theme1.css">
 <body>
  
 <?php 
@@ -30,9 +30,10 @@ $genre=$_POST["genre"];
 $title=$_POST["title"];
 $author=$_POST["author"];
 $edition=$_POST["edition"];
-$publication=$_POST["publication"];
+$status=$_POST["status"];
+$quantity=$_POST["quantity"];
 
-$query = "INSERT INTO book_detail(book_id,genre,title,author,edition,publication) VALUES('$book_id','$genre','$title','$author','$edition','$publication');";
+$query = "INSERT INTO book_detail(book_id,genre,title,author,edition,Status,Quantity) VALUES('$book_id','$genre','$title','$author','$edition','$status','$quantity');";
 
 if($conn->query($query))
 { 
