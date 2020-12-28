@@ -3,7 +3,7 @@
 <head>
 	<title>NetLibrarian.com</title>
 	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	   <link rel="stylesheet" type="text/css" href="theme.css">
+	   <link rel="stylesheet" type="text/css" href="theme1.css">
      <style>
   .sidenav {
   height: 100%;
@@ -18,7 +18,9 @@
   transition: 0.5s;
   padding-top: 60px;
 }
-
+img{
+  border-radius: 50%;
+}
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -60,21 +62,57 @@
 </head>
 <body>
  
+ <?php
+
+$dbcon=parse_ini_file("dbconfig.ini");
+$server=$dbcon['server'];
+$user=$dbcon['user'];
+$pw=$dbcon['dbpass'];
+$db=$dbcon['dbase'];
+
+
+$conn=mysqli_connect($server,$user,$pw,$db);
+
+if($conn->connect_error)
+{
+  die("Not Connected Properly".$conn->connect_error);
+}
+else
+{
+}
+?>
+ 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div style="color: white; margin-left: 60px; font-size: 20px;">
+
+                <?php
+                session_start();
+                if(isset($_SESSION['login_user']))
+
+                {    
+                    $q=mysqli_query($conn,"SELECT * FROM registration where Email='$_SESSION[login_user]' ;");
+                    $row=mysqli_fetch_assoc($q);
+                    echo "<div style='align: center'>
+                    <img height=110 width=120 src='upload/".$row['pic']."'>
+                    </div>";  
+                    echo "Welcome "."<br>"./*$_SESSION['login_user']*/$row['FirstName']." ".$row['LastName']; 
+                }
+                
+                ?>
+            </div><br><br>
 
  
   <div class="h"> <a href="index.php">Home</a></div>
   <div class="h"> <a href="book.php">Book Library</a></div>
-  <div class="h"><a href="profile.php">Profile</a></div>
-  <div class="h"><a href="#">Account Details</a></div>
+  <div class="h"><a href="profile.php">Profile</a></div> 
   <div class="h"><a href="contact_form.php">Contact</a></div>
-  <div class="h"><a href="search.php">Search</a></div>
+   
 </div>
 
 <div id="main">
   
-  <span style="color:#fff; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  <span style="color:#fff; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 
 <script>
@@ -90,7 +128,7 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 }
 </script>
- <div class="container cont2">
+ <div class="container">
  <div class="login-box">
 		<h1 align="center">Contact Form</h1>
         <form method="post" action="contact.php">
@@ -101,9 +139,9 @@ function closeNav() {
             <input type="text" name="mail" class="txt" placeholder="E-mail address" required="">
           </div>
            
-            <textarea name="message" placeholder="Message" required="" rows="6" cols="33" style=" background: transparent;font-size: 18px; border-bottom:  2px solid #4caf50;"></textarea>
+            <textarea name="message" placeholder="Message" required="" rows="6" cols="33" style=" background: transparent;font-size: 18px; border-bottom:  2px solid #00b289;"></textarea>
           
-          <input type="submit" name="send" value="Submit" class="btn" ><br><br>
+          <input type="submit" name="send" value="Submit" class="btn" ><br> 
           <input type="reset" name="reset" value="Reset" class="btn" >
         </form>
   </div>
