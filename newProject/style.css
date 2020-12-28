@@ -1,0 +1,170 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  perspective: 100rem;
+  overflow: hidden;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  animation: scale 25s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.banner {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+}
+
+.banner h1 {
+  font-family: "", serif;
+  font-size:  90px;
+  font-weight: 300;
+  color: #fff;
+  width: 50%;
+  line-height: 9rem;
+  letter-spacing: 0.2rem;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: moveBanner 1s 0.5s forwards;
+}
+
+.banner p {
+  font-family: "Muli", serif;
+  font-size: 40px;
+  color: #fff;
+  width: 90%;
+  letter-spacing: 0.1rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: moveBanner 1s 0.7s forwards;
+}
+
+@keyframes moveBanner {
+  0% {
+    transform: translateY(40rem) rotateY(-20deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1000px) {
+  .banner h1 {
+    font-size: 5rem;
+    line-height: 6rem;
+  }
+
+  .banner p {
+    font-size: 2.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
+
+  .name {
+    order: 1;
+    margin-top: 3rem;
+  }
+}
+ .footer {
+  width: 100%;
+  height: 10rem;
+  background-color: #17181b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-family: "Muli", serif;
+  font-size: 2rem;
+  color: #a7a7a7;
+}
+
+.social-list a {
+  margin: 0 2rem;
+}
+
+.social-list i {
+  font-size: 2rem;
+  color: #a7a7a7;
+}
+
+.scroll-btn {
+  position: fixed;
+  right: 5rem; 
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg,#0066B2FF 0%,#00203fff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+  box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+}
+
+@media (max-width: 1500px) {
+  
+   .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
+} 
+@media (max-width: 700px) {
+  .banner h1 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+
+  .banner p {
+    font-size: 2rem;
+  }
+ 
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 45%;
+  } 
+
+  .footer {
+    height: 16rem;
+  }
+  }
