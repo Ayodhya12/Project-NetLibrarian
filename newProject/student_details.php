@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	 <title>NetLibrarian.com</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="theme.css">
+	<link rel="stylesheet" type="text/css" href="theme1.css">
       
 	<style>
 		.btn1
 		{
 			width: 10%;
             background: none;
-            border: 2px solid #4caf50;
+            border: 2px solid  #00b289;
             color: #fff;
             padding-left: 10px;
             padding-right: 30px;
@@ -26,7 +26,7 @@
             font-size: 20px;
             padding: 8px 0;
             margin: 8px 0;
-            border: 2px solid #4caf50;
+            border: 2px solid  #00b289;
 		}
 		.textbox1  input
         {
@@ -61,7 +61,9 @@
   display: block;
   transition: 0.3s;
 }
-
+img{
+  border-radius: 50%;
+}
 .sidenav a:hover {
   color: white;
 }
@@ -93,14 +95,49 @@
 </style>
 </head>
 <body>
+ <?php
+
+$dbcon=parse_ini_file("dbconfig.ini");
+$server=$dbcon['server'];
+$user=$dbcon['user'];
+$pw=$dbcon['dbpass'];
+$db=$dbcon['dbase'];
+
+
+$conn=mysqli_connect($server,$user,$pw,$db);
+
+if($conn->connect_error)
+{
+  die("Not Connected Properly".$conn->connect_error);
+}
+else
+{
+}
+?>
+ 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div style="color: white; margin-left: 60px; font-size: 20px;">
 
+                <?php
+                session_start();
+                if(isset($_SESSION['login_user']))
+
+                {    
+                    $q=mysqli_query($conn,"SELECT * FROM registration where Email='$_SESSION[login_user]' ;");
+                    $row=mysqli_fetch_assoc($q);
+                    echo "<div style='align: center'>
+                    <img height=110 width=120 src='upload/".$row['pic']."'>
+                    </div>";  
+                    echo "Welcome "."<br>"./*$_SESSION['login_user']*/$row['FirstName']." ".$row['LastName']; 
+                }
+                
+                ?>
+            </div><br><br>
   <div class="h"> <a href="admin.php">Home</a></div>
   <div class="h"> <a href="admin_books.php">Book Library</a></div>
   <div class="h"><a href="admin_profile.php">Profile</a></div>
-  <div class="h"><a href="student_details.php">Students Details</a></div>
-  <div class="h"><a href="admin_search.php">Search</a></div>
+  <div class="h"><a href="student_details.php">Students Details</a></div> 
 
 </div>
 
@@ -134,28 +171,8 @@ function closeNav() {
 		</form>
 	</div>
 
-	<h2  align="center" style="color: #fff; border-bottom: 6px solid #4caf50; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">List Of Students</h2>
-	<?php 
-
-	session_start();
-
-$dbcon=parse_ini_file("dbconfig.ini");
-$server=$dbcon['server'];
-$user=$dbcon['user'];
-$pw=$dbcon['dbpass'];
-$db=$dbcon['dbase'];
-
-
-$conn=mysqli_connect($server,$user,$pw,$db);
-
-if($conn->connect_error)
-{
-	die("Not Connected Properly".$conn->connect_error);
-}
-else
-{
-
-}
+	<h2  align="center" style="color: #fff; border-bottom: 6px solid  #00b289; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">List Of Students</h2>
+	<?php
 
 		if(isset($_POST['submit']))
 		{
