@@ -2,18 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>NetLibrarian</title>
- 
+	 <title>NetLibrarian.com</title>
+     <link rel="stylesheet" type="text/css" href="theme1.css">
 </head>
 <body>
 	<div class="login-box">
-		<h1 align="center"> Login</h1>
-	    <form method="post" action="login.php">
+		<h1 align="center">Change Password </h1>
+	    <form method="post" action="">
             <div class="textbox">
-	            <input   type="text" name="email"  placeholder="Your E-mail Address" required="">
+	            <input   type="email" name="email"  placeholder="Your E-mail Address" required="">
             </div>
             <div class="textbox">
                 <input  name="pwd" type="password" placeholder="New Password" required="">
+               
+            </div>
+            <div class="textbox">
+                <input  name="cpwd" type="password" placeholder="Confirm Password" required="">
                
             </div><br><br>
               
@@ -42,14 +46,14 @@ else
 
 		if(isset($_POST['submit']))
 		{
-			if(mysqli_query($conn,"UPDATE registration SET Password='$_POST[pwd]' WHERE  Email='$_POST[email]'
-			AND email='$_POST[email]' ;"))
+			if(mysqli_query($conn,"UPDATE registration SET Password='$_POST[pwd]' WHERE  Email='$_POST[email]'"))
 			{
 				 
-				echo "<center><h2 class='alert alert-success' style='width:450px; margin-top:250px;'>Record Added Successfully</h2></center>	 
+				echo "<center><h2 class='alert alert-success' style='width:450px; margin-top:250px;'>Record Added Successfully</h2></center>";	 
  
 			}
 		}
-	?></div>
+	?>
+	</div>
 </body>
 </html>
