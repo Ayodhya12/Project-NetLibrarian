@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	 <title>NetLibrarian.com</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="theme.css">
+		<link rel="stylesheet" type="text/css" href="theme1.css">
 </head>
 <body>
 <div class="container">
@@ -38,14 +38,15 @@ if(mysqli_num_rows($res)==0)
 	}
 else
 {
- echo "<table class= 'table table-dark table-hover'>";
+ echo "<table class='table table-dark table-hover'>";
  echo "<tr style='background-color:#28292d;'>";
  echo "<th>"; echo "Book ID"; echo "</th>";
  echo "<th>"; echo "Genre"; echo "</th>";
  echo "<th>"; echo "Title"; echo "</th>";
  echo "<th>"; echo "Author"; echo "</th>";
  echo "<th>"; echo "Edition"; echo "</th>";
- echo "<th>"; echo "Publication"; echo "</th>";
+ echo "<th>"; echo "Status"; echo "</th>";
+/* echo "<th>"; echo "Quantity"; echo "</th>";*/
  echo " </tr>";
 
  while ($row=mysqli_fetch_assoc($res))
@@ -56,7 +57,8 @@ else
  echo "<td>"; echo $row['title']; echo "</td>";
  echo "<td>"; echo $row['author']; echo "</td>";
  echo "<td>"; echo $row['edition']; echo "</td>";
- echo "<td>"; echo $row['publication']; echo "</td>";
+ echo "<td>"; echo $row['status']; echo "</td>";
+ /*echo "<td>"; echo $row['quantity']; echo "</td>";*/
  echo " </tr>";
  }
 
