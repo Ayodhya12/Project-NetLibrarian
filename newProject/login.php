@@ -1,5 +1,5 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- <link rel="stylesheet" type="text/css" href="theme.css">
+ <link rel="stylesheet" type="text/css" href="theme1.css">
 <?php
 
 $email=$_REQUEST["mail"];
@@ -73,6 +73,7 @@ else{
  
 mysqli_close($conn);
 ?>
+<center><h2 class='alert alert-dark' style='width:450px; margin-top:40px;'><a href="index.php" style=" text-decoration: none;"> click here </a></h2></center>
 </body>
 </html>
 
