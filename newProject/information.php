@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	 <title>NetLibrarian.com</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="theme.css">
+	<link rel="stylesheet" type="text/css" href="theme1.css">
 <style>
 	.sidenav {
   height: 100%;
@@ -31,7 +31,9 @@
 .sidenav a:hover {
   color: white;
 }
-
+img{
+  border-radius: 50%;
+}
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -89,8 +91,14 @@ else
                 if(isset($_SESSION['login_user']))
 
                 { 	 
-                    echo "Welcome ".$_SESSION['login_user']; 
+                   $q=mysqli_query($conn,"SELECT * FROM registration where Email='$_SESSION[login_user]' ;");
+                   $row=mysqli_fetch_assoc($q);
+                   echo "<div style='align: center'>
+                    <img height=110 width=120 src='upload/".$row['pic']."'>
+                    </div>";  
+                   echo "Welcome "."<br>"./*$_SESSION['login_user']*/$row['FirstName']." ".$row['LastName']; 
                 }
+                
                 ?>
             </div><br><br>
 
@@ -104,7 +112,7 @@ else
 
 <div id="main">
   
-  <span style="color:#fff; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  <span style="color:#fff; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 
 <script>
@@ -121,16 +129,16 @@ function closeNav() {
 }
 </script>
  <div class="container">
-<h1 align="center" style="color: #fff; border-bottom: 6px solid #4caf50; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">List Of Books</h1>
+<h1 align="center" style="color: #fff; border-bottom: 6px solid #00b289; margin-bottom: 20px;  padding: 13px 0; width: 400px; ">List Of Books</h1>
    <?php
 	if(isset($_SESSION['login_user']))
 		{
-			$q=mysqli_query($conn,"SELECT registration.Email,book_detail.book_id,title,author,edition,borrow_books.issue_date,borrow_books.return_date FROM registration inner join borrow_books ON registration.Email=borrow_books.Email inner join book_detail ON borrow_books.book_id=book_detail.book_id WHERE borrow_books.Email ='$_SESSION[login_user]' and borrow_books.status='' and borrow_books.approve ='yes' ORDER BY `borrow_books`.`return_date` ASC ;");
+			$q=mysqli_query($conn,"SELECT registration.Email,book_detail.book_id,title,author,edition,borrow_books.issue_date,borrow_books.return_date FROM registration inner join borrow_books ON registration.Email=borrow_books.Email inner join book_detail ON borrow_books.book_id=book_detail.book_id WHERE borrow_books.Email ='$_SESSION[login_user]' AND borrow_books.status=''  AND borrow_books.approve ='yes' ORDER BY `borrow_books`.`return_date` ASC ;");
 
 
 			if(mysqli_num_rows($q)==0)
 			{
-				echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'>There's no pending request</h2></center>";
+				echo "<center><h2 class='alert alert-dark' style='width:450px; margin-top:250px;'>There's no borrow books</h2></center>";
 			}
 			else
 			{
