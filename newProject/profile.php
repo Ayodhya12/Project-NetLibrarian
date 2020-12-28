@@ -1,15 +1,15 @@
 <!DOCTYPE html>
  <html>
  <head>
- 	<title> </title>
- 	<link rel="stylesheet" type="text/css" href="theme.css">
+ 	 <title>NetLibrarian.com</title>
+ 	<link rel="stylesheet" type="text/css" href="theme1.css">
  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
  	<style>
  			.btn1
 		{
 			width: 10%;
             background: none;
-            border: 2px solid #4caf50;
+            border: 2px solid #00b289;
             color: #fff;
             padding-left: 10px;
             padding-right: 70px;
@@ -50,6 +50,9 @@
   font-size: 36px;
   margin-left: 50px;
 }
+img{
+  border-radius: 50%;
+}
 
 #main {
   transition: margin-left .5s;
@@ -67,23 +70,71 @@
 	height: 50px;
 	background-color: #00544c;
 }
+@media (max-width: 500px) {
+  html {
+    font-size: 45%;
+  } 
+
+  .container {
+    height: 16rem;
+  }
+  b {
+     font-size: 14px;
+  }
+
+  }
 </style>
 </head>
 <body>
+ <?php
+
+$dbcon=parse_ini_file("dbconfig.ini");
+$server=$dbcon['server'];
+$user=$dbcon['user'];
+$pw=$dbcon['dbpass'];
+$db=$dbcon['dbase'];
+
+
+$conn=mysqli_connect($server,$user,$pw,$db);
+
+if($conn->connect_error)
+{
+  die("Not Connected Properly".$conn->connect_error);
+}
+else
+{
+}
+?>
+ 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div style="color: white; margin-left: 60px; font-size: 20px;">
+
+                <?php
+                session_start();
+                if(isset($_SESSION['login_user']))
+
+                {    
+                    $q=mysqli_query($conn,"SELECT * FROM registration where Email='$_SESSION[login_user]' ;");
+                    $row=mysqli_fetch_assoc($q);
+                    echo "<div style='align: center'>
+                    <img height=110 width=120  src='upload/".$row['pic']."'>
+                    </div>";  
+                    echo "Welcome "."<br>"./*$_SESSION['login_user']*/$row['FirstName']." ".$row['LastName']; 
+                }
+                
+                ?>
+            </div><br><br>
 
    <div class="h"> <a href="index.php">Home</a></div>
   <div class="h"> <a href="book.php">Book Library</a></div>
-  <div class="h"><a href="profile.php">Profile</a></div>
-  <div class="h"><a href="#">Account Details</a></div>
-  <div class="h"><a href="contact_form.php">Contact</a></div>
-  <div class="h"><a href="search.php">Search</a></div>
+  <div class="h"><a href="profile.php">Profile</a></div> 
+  <div class="h"><a href="contact_form.php">Contact</a></div> 
 </div>
 
 <div id="main">
   
-  <span style="color:#fff; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  <span style="color:#fff; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 
 <script>
@@ -105,26 +156,8 @@ function closeNav() {
  			<button class="btn1" style="margin-top: 20px; float: right; width: 70px;" name="submit">Settings</button>
  		</form>
  		 
-           <?php
-                session_start();  
-                $dbcon=parse_ini_file("dbconfig.ini");
-                $server=$dbcon['server'];
-                $user=$dbcon['user'];
-                $pw=$dbcon['dbpass'];
-                $db=$dbcon['dbase'];
-
-
-                $conn=mysqli_connect($server,$user,$pw,$db);
-
-               if($conn->connect_error)
-               {
-	              die("Not Connected Properly".$conn->connect_error);
-                }
-               else
-               {
-
-	            }
-
+           <?php 
+           
  				if(isset($_POST['submit']))
  				{
  					?>
@@ -139,13 +172,16 @@ function closeNav() {
  			<h1 style="text-align: center;">My Profile</h1>
             
  			<?php
- 				$row=mysqli_fetch_assoc($q);
+ 				$row=mysqli_fetch_assoc($q); 
 
+        echo "<div style='text-align: center'>
+          <img height=110 width=120 src='upload/".$row['pic']."'>
+        </div>";
   			?>
  			<div style="text-align: center;"> <b><h3>Welcome,</h3></b>
 	 			<h2>
 	 				<?php echo /*$_SESSION['login_user']*/$row['FirstName']; ?>
-	 			</h2><br><br>
+	 			</h2><br>
  			</div>
  			<?php
 
@@ -194,8 +230,19 @@ function closeNav() {
 	 						echo $status;
 	 					echo "</td>";
 	 				echo "</tr>";
-
-	 				
+        $s=0;
+          $result=mysqli_query($conn,"SELECT * FROM fine where Email='$_SESSION[login_user]'  and status='not paid' ;");
+          while($r=mysqli_fetch_assoc($result))
+          {
+            $s=$s+$r['fine'];
+          } 
+?>
+          <h3><center>Your fine is: 
+          <?php
+            echo "Rs ".$s;
+          ?></center>
+        </h3>
+        <?php
  				echo "</table>";
  				echo "</b>";
  			?>
